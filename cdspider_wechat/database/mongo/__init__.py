@@ -6,3 +6,6 @@
 :author:  Zhang Yi <loeyae@gmail.com>
 :date:    2019/4/10 10:29
 """
+
+from .WechatRuledb import WechatRuleDB
+from .Wechatdb import WechatDB

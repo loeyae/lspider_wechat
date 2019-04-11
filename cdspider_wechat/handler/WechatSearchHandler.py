@@ -6,18 +6,12 @@
 :author:  Zhang Yi <loeyae@gmail.com>
 :date:    2018-12-22 10:28:27
 """
-import re
 import copy
 import time
-import traceback
-import urllib.request
 from cdspider.handler import GeneralSearchHandler, Loader
-from urllib.parse import urljoin, urlparse, quote_plus
-from cdspider.database.base import *
 from cdspider.libs import utils
 from cdspider.libs.constants import *
 from cdspider.parser import ListParser
-from cdspider.parser.lib import TimeParser
 
 
 class WechatSearchHandler(GeneralSearchHandler):

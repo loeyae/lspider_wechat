@@ -12,10 +12,11 @@ import traceback
 import html
 from cdspider.handler import BaseHandler, Loader
 from urllib.parse import urljoin, unquote_plus
-from cdspider.database.base import *
 from cdspider.libs import utils
 from cdspider.libs.constants import *
 from cdspider.parser import ListParser, CustomParser
+from cdspider_wemedia.database.base import AuthorListRuleDB
+from cdspider_wechat.database.base import *
 
 class WechatListHandler(BaseHandler):
     """
