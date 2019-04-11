@@ -9,8 +9,7 @@
 :version: SVN: $Id: Wechatdb.py 2116 2018-07-04 03:56:12Z zhangyi $
 """
 import time
-import pymongo
-from cdspider.database.base import WechatDB as BaseWechatDB
+from cdspider_wechat.database.base import WechatDB as BaseWechatDB
 from cdspider.database.mongo.Mongo import Mongo
 
 class WechatDB(Mongo, BaseWechatDB):
