@@ -6,12 +6,11 @@
 :author:  Zhang Yi <loeyae@gmail.com>
 :date:    2018-12-22 10:28:27
 """
-import copy
 import time
 from cdspider.handler import GeneralSearchHandler, Loader
 from cdspider.libs import utils
 from cdspider.libs.constants import *
-from cdspider.parser import ListParser
+from . import HANDLER_MODE_WECHAT_SEARCH, HANDLER_MODE_WECHAT_ITEM
 
 
 class WechatSearchHandler(GeneralSearchHandler):
@@ -20,31 +19,6 @@ class WechatSearchHandler(GeneralSearchHandler):
     :property task 爬虫任务信息 {"mode": "search", "uuid": SpiderTask.list uuid}
                    当测试该handler，数据应为 {"mode": "search", "keyword": 关键词规则, "authorListRule": 列表规则，参考列表规则}
     """
-
-    def run_parse(self, rule):
-        """
-        根据解析规则解析源码，获取相应数据
-        :param rule 解析规则
-        :input self.response 爬虫结果 {"last_source": 最后一次抓取到的源码, "final_url": 最后一次请求的url}
-        :output self.response {"parsed": 解析结果}
-        """
-        parser = ListParser(source=self.response['last_source'], ruleset=copy.deepcopy(rule), log_level=self.log_level, url=self.response['final_url'])
-        parsed = parser.parse()
-        self.debug("%s parsed: %s" % (self.__class__.__name__, parsed))
-        self.response['parsed'] = parsed
-
-    def run_parse(self, rule):
-        """
-        根据解析规则解析源码，获取相应数据
-        :param rule 解析规则
-        :input self.response 爬虫结果 {"last_source": 最后一次抓取到的源码, "final_url": 最后一次请求的url}
-        :output self.response {"parsed": 解析结果}
-        """
-        parser = ListParser(source=self.response['last_source'], ruleset=copy.deepcopy(rule), log_level=self.log_level, url=self.response['final_url'])
-        parsed = parser.parse()
-        if not parsed:
-            raise CDSpiderCrawlerForbidden()
-        self.response['parsed'] = parsed
 
     def update_crawl_info(self, save):
         """
@@ -107,9 +81,6 @@ class WechatSearchHandler(GeneralSearchHandler):
                     self.on_error(e, save)
             if item_handler:
                 item_handler.finish(item_save)
-
-    def url_prepare(self, url):
-        return url
 
     def build_item_task(self, url):
         """
