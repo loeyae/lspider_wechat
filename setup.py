@@ -18,6 +18,7 @@ setup(
     url="https://github.com/loeyae/lspider_wechat.git",
     install_requires = [
         'cdspider>=0.1',
+        'cdspider_wemedia>=0.1'
     ],
     packages = find_packages(),
 
@@ -26,10 +27,6 @@ setup(
             'wechat-list=cdspider_wechat.handler:WechatListHandler',
             'wechat-item=cdspider_wechat.handler:WechatItemHandler',
             'wechat-search=cdspider_wechat.handler:WechatSearchHandler',
-        ],
-        'cdspider.dao.mongo': [
-            'WechatDB=cdspider_wechat.database.mongo:WechatDB',
-            'WechatRuleDB=cdspider_wechat.database.mongo:WechatRuleDB',
         ]
     }
 )
