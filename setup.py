@@ -9,7 +9,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="cdspider_wechat",
-    version="0.1.1",
+    version="0.1.3",
     description="数据采集框架微信采集",
     author='Zhang Yi',
     author_email='loeyae@gmail.com',
@@ -17,7 +17,7 @@ setup(
     url="https://github.com/loeyae/lspider_wechat.git",
     install_requires=[
         'cdspider>=0.1.4',
-        'cdspider_wemedia>=0.1.1'
+        'cdspider_wemedia>=0.1.3'
     ],
     packages=find_packages(),
 
